@@ -25,17 +25,38 @@ def mensajeUsuario():
 
 
 def ingresoUsuarioDatos():
-
-    """
-        Funcion creada para que el usuario puede digitar la ubicacion del robot,
-       
-    """
-    estadoObjetivo = {'A': '0', 'B':  '0', 'C': '0', 'D': '0', 'E': '0', 'F': '0','G': '0'} # estado objetivo
-    costo = 0  # costo
-    listaRes=['A','B','C','D','E','F', 'G'] # lista de ubicaciones
+     estadoObjetivo = {'A': '0', 'B':  '0', 'C': '0', 'D': '0', 'E': '0', 'F': '0','G': '0'} # estado objetivo
+     costo = 0  # costo
+     listaRes=['A','B','C','D','E','F', 'G'] # lista de ubicaciones
     
-    print("Digite la ubicación del robot") #El usuario digita la ubicación del robot
-    ubicacionRobot= input("") #Leeremos lo que el usuario digita
-    while ubicacionRobot >='a': #Ciclo for para validar que solo digite mayusculas
-        print("Error, vuelva a digita una letra mayúscula") #mensaje de error
-        ubicacionRobot = input('Vuelva a ingresar la ubicación del robot ') #Volver a ingresar la ubicacion del robot
+     print("Digite la ubicación del robot") #El usuario digita la ubicación del robot
+     ubicacionRobot= input("") #Leeremos lo que el usuario digita
+     while ubicacionRobot >='a': #Ciclo for para validar que solo digite mayusculas
+          print("Error, vuelva a digita una letra mayúscula") #mensaje de error
+          ubicacionRobot = input('Vuelva a ingresar la ubicación del robot ') #Volver a ingresar la ubicacion del robot
+
+     if ubicacionRobot == 'A': #Si la ubicacion del robot es A
+          print('La ubicación del robot es: A')#Mostramos donde se encuentra el robtot
+          while True: #Ciclo while para validar que el usuario digite una letra de la lista
+               try: #Intentar validar que el usuario digite una letra de la lista
+                    hectarea = int(input("Estado de la hectarea")) #Le pedimos al usuario el estado
+                    if hectarea == 1:#Si el estado es 1
+                         if hectarea == 1: #Si hectarea es igual a 1
+                              estadoObjetivo['A'] = '0' #Entonces cambiamos de estado
+                         #Informa que está recolectando las manzanas
+                              print("|******************************|")#Simulando un pequeño sistema
+                              print("|****RECOLECTANDO MANZANAS*****|")#Simulando un pequeño sistema
+                              print("|******************************|")#Simulando un pequeño sistema
+                              print("")#Simulando un pequeño sistema
+                              print("")#Simulando un pequeño sistema
+                              print("")#Simulando un pequeño sistema
+                              print("|******************************|")#Simulando un pequeño sistema
+                              print("|****MANZANAS RECOLECTADAS*****|")#Simulando un pequeño sistema
+                              print("|******************************|")#Simulando un pequeño sistema
+                              #AUMENTAMOS EL VALOR DEL COSTO
+                              costo+= 1
+                              #Mostramos el valor del costo
+                              print("El valor del costo =1    "   + str(costo)) #Simulando un pequeño sistema
+                              print("|******************************|")#Simulando un pequeño sistema
+                              print("|****HECTAREA 1 RECOLECTADA*****|")#Simulando un pequeño sistema
+                              print("|******************************|")#Simulando un pequeño sistemat   
