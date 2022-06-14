@@ -59,4 +59,41 @@ def ingresoUsuarioDatos():
                               print("El valor del costo =1    "   + str(costo)) #Simulando un pequeño sistema
                               print("|******************************|")#Simulando un pequeño sistema
                               print("|****HECTAREA 1 RECOLECTADA*****|")#Simulando un pequeño sistema
-                              print("|******************************|")#Simulando un pequeño sistemat   
+                              print("|******************************|")#Simulando un pequeño sistemat
+                              for i in range (0,7): #Ciclo for para mostrar la lista de ubicaciones
+                                   if ubicacionRobot == listaRes[i]: #Si la ubicacion del robot es igual a la lista de ubicaciones
+                                        pass #No hacemos nada
+                                   else:#Si no es igual a la lista de ubicaciones
+                                        hectareasRes = int(input( "Digite el estado de la hectarea: " + listaRes[i]))
+                                        while hectareasRes != 1 and hectareasRes != 0:
+                                             print("Error, vuelva a digita un valor entre 0 y 1" + listaRes[i])
+                                             hectareasRes = int(input( "Digite el estado de la hectarea: " + listaRes[i]))
+                                        if hectareasRes == 1:
+                                             print("El área no está regaga")
+                                             print("Procediendo a recolectar las hectareas")
+                                             print("*** PROCESANDO...........*******") 
+                                             print("|******************************|")#Simulando un pequeño sistema
+                                             print("|****RECOLECTANDO MANZANAS*****|")#Simulando un pequeño sistema
+                                             print("|******************************|")#Simulando un pequeño sistema
+                                             print("") #Espacio
+                                             print("Hectareas totalmente recolectadas")#Hectareas recolectadas
+                                             print("El estado objetivo es:")#printiamos el estado del objetivo
+                                             print(estadoObjetivo)#Objetivo
+                                             costo+=1#Como cumple la opcion, aumenta el costo
+                                             print("El valor del costo es:  ")#mostramos el costo
+                                             print(costo)#mostramos el costo
+
+                                        else:  #caso contrario, si todo no esta correcto
+                                             print("Hectareas regadas") #mostramos la hectareas
+                                             print("El costo se mantiene igual " + str(costo)) #Concatenamos el valor del costo
+                                             if hectareasRes == 0:
+                                                  print("***La hectarea no está recolectada")
+                                                  print("*DIRIGIENDOSE A LA HECTAREA ")
+                                                  print("El costo se mantiene igual " + str(costo))             
+                    break #Cerramos el ciclo while
+               except ValueError: #Mostramos la excepcion
+                    print("Error, Ingrese un valor numérico") #Mostramos un mensaje     
+                                       
+                                       
+
+
