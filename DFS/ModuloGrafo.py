@@ -81,4 +81,63 @@ class Grafo:
         camino.pop() # Elimina el ultimo nodo del camino que se va agusarando en la busqueda en la funcion dfs de tipo lista de nodos y se lo asigna a la variable camino de tipo lista de nodos
         return None # Retorna nulo si el resultado de la funcion dfs de tipo lista de nodos es nulo
     
+#----------------------------METODO MAIN--------------------
 
+if __name__ == "__main__": # Si el archivo se ejecuta directamente se ejecuta el siguiente codigo
+
+
+    '''
+    Lo primero que tenemos que hacer es crear una instancia de la Graph clase.
+    Nuestro gráfico de ejemplo es no dirigido y tiene 5 nodos, 
+    por lo que crearemos su representación de la siguiente manera:
+    '''
+    grafoUltimo = Grafo(20, nodo_dirigido=True)# Crea una instancia de la clase Grafo con 20 nodos y el grafo es dirigido
+    grafoUltimo.agregar_borde(0, 4) # Agrega el borde del nodo 0 al nodo 4 con un peso de 1
+    grafoUltimo.agregar_borde(4, 10) # Agrega el borde del nodo 4 al nodo 10 con un peso de 1
+    grafoUltimo.agregar_borde(4, 11)# Agrega el borde del nodo 4 al nodo 11 con un peso de 1
+    grafoUltimo.agregar_borde(10, 16)# Agrega el borde del nodo 10 al nodo 16 con un peso de 1
+    grafoUltimo.agregar_borde(10, 17)# Agrega el borde del nodo 10 al nodo 17 con un peso de 1
+    grafoUltimo.agregar_borde(17, 19)# Agrega el borde del nodo 17 al nodo 19 con un peso de 1
+
+    #Segunda ruta posible para el nodo
+    grafoUltimo.agregar_borde(1, 4)# Agrega el borde del nodo 1 al nodo 4 con un peso de 1
+    grafoUltimo.agregar_borde(1, 5)# Agrega el borde del nodo 1 al nodo 5 con un peso de 1
+    grafoUltimo.agregar_borde(5, 12)# Agrega el borde del nodo 5 al nodo 12 con un peso de 1
+    grafoUltimo.agregar_borde(12, 18)# Agrega el borde del nodo 12 al nodo 18 con un peso de 1
+    grafoUltimo.agregar_borde(18, 19)# Agrega el borde del nodo 18 al nodo 19 con un peso de 1
+
+    #Tercer ruta posible 
+    grafoUltimo.agregar_borde(2, 6)# Agrega el borde del nodo 2 al nodo 6 con un peso de 1
+    grafoUltimo.agregar_borde(2, 7)# Agrega el borde del nodo 2 al nodo 7 con un peso de 1
+    grafoUltimo.agregar_borde(6, 13)# Agrega el borde del nodo 6 al nodo 13 con un peso de 1
+    grafoUltimo.agregar_borde(7, 13)# Agrega el borde del nodo 7 al nodo 13 con un peso de 1
+    grafoUltimo.agregar_borde(13, 14)# Agrega el borde del nodo 13 al nodo 14 con un peso de 1
+    grafoUltimo.agregar_borde(13, 15)# Agrega el borde del nodo 13 al nodo 15 con un peso de 1
+    grafoUltimo.agregar_borde(14, 18)# Agrega el borde del nodo 14 al nodo 18 con un peso de 1
+
+    #Cuarta ruta posible
+
+    grafoUltimo.agregar_borde(3, 8)# Agrega el borde del nodo 3 al nodo 8 con un peso de 1
+    grafoUltimo.agregar_borde(3, 9)# Agrega el borde del nodo 3 al nodo 9 con un peso de 1    
+    grafoUltimo.agregar_borde(8, 15)# Agrega el borde del nodo 8 al nodo 15 con un peso de 1
+    grafoUltimo.agregar_borde(9, 18)# Agrega el borde del nodo 9 al nodo 18 con un peso de 1
+
+
+#-----------------------------------GRAFICAMOS EL NODO----------------------------------------------------------------------------------------------------------------------------------
+    # Echemos un vistazo a cómo almacena internamente la clase nuestro gráfico de ejemplo.
+    grafoUltimo.print_lista_adyacente() # Imprime la lista de adyacencia del grafo con los nodos y los bordes
+
+    camino_transversal = [] # Crea una lista de camino transversal de tipo lista de nodos y se lo asigna a la variable camino_transversal de tipo lista de nodos
+    NodoInicial= int(input("Digite un nodo inicial")) # Pide al usuario que ingrese un nodo inicial de tipo entero
+    NodoFinal= int(input("Digite un nodo final")) # Pide al usuario que ingrese un nodo final de tipo entero
+    camino_transversal = grafoUltimo.dfs(NodoInicial, NodoFinal) # Llama a la funcion dfs de tipo lista de nodos y se lo asigna a la variable camino_transversal de tipo lista de nodos
+    print('El camino transversal del nodo   ' +     str(NodoInicial) + '    al nodo  '   + str(NodoFinal)) # Imprime el camino transversal del nodo inicial al nodo final de tipo string con los nodos que se encuentran en la lista de camino transversal.
+    print(camino_transversal) # Imprime la lista de camino transversal de tipo lista de nodos
+    if camino_transversal != None: # Si la lista de camino transversal no es nula se ejecuta el siguiente codigo
+        Grafo = nx.DiGraph() # Crea una instancia de la clase nx.DiGraph y se lo asigna a la variable Grafo de tipo nx.DiGraph
+        Grafo.add_edges_from([('0', '1'), ('1', '4')]) # Agrega los bordes del nodo 0 al nodo 1 y del nodo 1 al nodo 4
+        pos = nx.spring_layout(Grafo) # Crea una instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout
+        nx.draw_networkx_nodes(Grafo, pos, node_size=500) # Dibuja los nodos del grafo con la instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout y el tamaño de los nodos es de 500
+        nx.draw_networkx_edges(Grafo, pos, edgelist=Grafo.edges(),edge_color='black') # Dibuja los bordes del grafo con la instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout y el color de los bordes es de color 
+        nx.draw_networkx_labels(Grafo,pos) # Dibuja las etiquetas del grafo con la instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout 
+        plt.show() # Muestra el grafo.
