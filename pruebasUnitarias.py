@@ -8,7 +8,7 @@ class TestRobot(unittest.TestCase): #   Definir la clase TestRobot
         datos del usuario es correcto
         """
         #self.assertEqual(ingresoUsuarioDatos(), 'A') #   Comparar el resultado de la función ingresoUsuarioDatos con el valor esperado
-        self.assertEqual(ingresoUsuarioDatos()) #   Comparar el resultado de la función ingresoUsuarioDatos con el valor esperado
+        self.assertEqual(ingresoUsuarioDatos(), ingresoUsuarioDatos()) #   Comparar el resultado de la función ingresoUsuarioDatos con el valor esperado
 
 
 if __name__ == '__main__': #   Definir la función main
