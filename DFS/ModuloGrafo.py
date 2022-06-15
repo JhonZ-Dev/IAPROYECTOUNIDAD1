@@ -42,7 +42,7 @@ class Grafo:
             self.m_lista_adyacencia[nodo2].add((nodo1, peso_nodo)) # Agrega el borde al nodo2 en la lista de adyacencia del grafo con el nodo1 y el peso del border y lo agrega al nodo1
 
     #----------------------------Funciones para la lista adyecencia de la funcion al nodo--------------------
-    def lista_adyacencia(self):
+    def print_lista_adyacente(self):
         """
         Una lista de adyacencia es un tipo de representación gráfica en código, consiste en llaves que representan cada nodo, y un colocar de valores
         para cada uno de ellos que contienen nodos que están conectados al nodo clave con un 
@@ -135,7 +135,7 @@ if __name__ == "__main__": # Si el archivo se ejecuta directamente se ejecuta el
     print(camino_transversal) # Imprime la lista de camino transversal de tipo lista de nodos
     if camino_transversal != None: # Si la lista de camino transversal no es nula se ejecuta el siguiente codigo
         Grafo = nx.DiGraph() # Crea una instancia de la clase nx.DiGraph y se lo asigna a la variable Grafo de tipo nx.DiGraph
-        Grafo.add_edges_from([('0', '1'), ('1', '4')]) # Agrega los bordes del nodo 0 al nodo 1 y del nodo 1 al nodo 4
+        Grafo.add_edges_from([('0', '4'), ('4', '10'), ('10', '17'), ('17', '19')]) # Agrega los bordes del nodo 0 al nodo 1 y del nodo 1 al nodo 4
         pos = nx.spring_layout(Grafo) # Crea una instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout
         nx.draw_networkx_nodes(Grafo, pos, node_size=500) # Dibuja los nodos del grafo con la instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout y el tamaño de los nodos es de 500
         nx.draw_networkx_edges(Grafo, pos, edgelist=Grafo.edges(),edge_color='black') # Dibuja los bordes del grafo con la instancia de la clase nx.spring_layout y se lo asigna a la variable pos de tipo nx.spring_layout y el color de los bordes es de color 
