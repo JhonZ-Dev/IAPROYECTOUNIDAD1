@@ -64,10 +64,10 @@ def ingresoUsuarioDatos():
                                    if ubicacionRobot == listaRes[i]: #Si la ubicacion del robot es igual a la lista de ubicaciones
                                         pass #No hacemos nada
                                    else:#Si no es igual a la lista de ubicaciones
-                                        hectareasRes = int(input( "Digite el estado de la hectarea: " + listaRes[i]))
-                                        while hectareasRes != 1 and hectareasRes != 0:
-                                             print("Error, vuelva a digita un valor entre 0 y 1" + listaRes[i])
-                                             hectareasRes = int(input( "Digite el estado de la hectarea: " + listaRes[i]))
+                                        hectareasRes = int(input( "Digite el estado de la hectarea: " + listaRes[i])) #Le pedimos al usuario el estado de la hectarea de la lista de ubicaciones de la ubicacion del robot
+                                        while hectareasRes != 1 and hectareasRes != 0: #Ciclo while para validar que el usuario digite una letra en mayusculas
+                                             print("Error, vuelva a digita un valor entre 0 y 1:    " + listaRes[i]) #Mensaje de error
+                                             hectareasRes = int(input( "Digite el estado de la hectarea:      " +  listaRes[i])) #Le pedimos al usuario el estado de la hectarea de la lista de ubicaciones de la ubicacion del robot
                                         if hectareasRes == 1:
                                              print("El área no está regaga")
                                              print("Procediendo a recolectar las hectareas")
